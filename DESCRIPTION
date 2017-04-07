@@ -1,0 +1,13 @@
+Package: thankr
+Type: Package
+Title: Find out who wrote the packages you use
+Version: 0.1.0.9000
+Authors@R: c(person("Schumacher", "Dirk", email = "mail@dirk-schumacher.net", role = c("aut", "cre")))
+Maintainer: Dirk Schumacher <mail@dirk-schumacher.net>
+Description: It is exactly what you think it is.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports: dplyr, tools, utils
+Suggests: testthat
+RoxygenNote: 6.0.1
