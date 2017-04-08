@@ -24,7 +24,7 @@ library(thankr)
 
 ``` r
 # identifies the packages currently loaded in your session
-shoulders() # equal to shoulders("namespace")
+shoulders() # equal to shoulders("session")
 ```
 
 ``` r

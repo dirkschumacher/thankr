@@ -1,8 +1,12 @@
 context("shoulders")
 
 test_that("identifies namespace dependencies", {
-  result <- shoulders("namespace")
+  result <- shoulders("session")
   expect_true(any(grepl("base", result$packages)))
+})
+
+test_that("shoulders defaults to session", {
+  expect_equal(shoulders("session"), shoulders())
 })
 
 test_that("identifies library dependencies", {

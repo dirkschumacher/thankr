@@ -5,14 +5,14 @@
 #'
 #' If you do a package lookup you connect to a CRAN mirror.
 #'
-#' @param where either look in the current loaded "namespace", your whole "library" or for a specific package
+#' @param where either look in the current loaded "session", your whole "library" or for a specific package
 #' @param package if \code{where} is "package" then this must be a character vector of positive length
 #' @param include_dependencies if \code{where} is "package" then use this to include all dependencies of the package.
 #'                             Otherwise it will just return the maintainer.
 #'
 #' @return a tibble with three columns, \code{maintainer}, \code{no_packages}, \code{packages} showing all packages you depend on.
 #' @export
-shoulders <- function(where = c("namespace", "library", "package"),
+shoulders <- function(where = c("session", "library", "package"),
                       package = NULL, include_dependencies = TRUE) {
   # !is.null(package) => is.logical(include_dependencies)
   stopifnot(is.null(package) || is.logical(include_dependencies))
@@ -20,8 +20,8 @@ shoulders <- function(where = c("namespace", "library", "package"),
 
   # where == "package" => is.character(package) && length(package) > 0
   stopifnot(where != "package" || is.character(package) && length(package) > 0)
-  if (where == "namespace") {
-    namespace_shoulders()
+  if (where == "session") {
+    session_shoulders()
   } else if (where == "library") {
     library_shoulders()
   } else if (where == "package") {
@@ -62,7 +62,7 @@ library_shoulders <- function() {
 }
 
 #' @noRd
-namespace_shoulders <- function() {
+session_shoulders <- function() {
   build_package_list(loadedNamespaces())
 }
 

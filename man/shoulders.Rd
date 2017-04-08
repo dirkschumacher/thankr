@@ -4,11 +4,11 @@
 \alias{shoulders}
 \title{Find out who wrote the packages you use}
 \usage{
-shoulders(where = c("namespace", "library", "package"), package = NULL,
+shoulders(where = c("session", "library", "package"), package = NULL,
   include_dependencies = TRUE)
 }
 \arguments{
-\item{where}{either look in the current loaded "namespace", your whole "library" or for a specific package}
+\item{where}{either look in the current loaded "session", your whole "library" or for a specific package}
 
 \item{package}{if \code{where} is "package" then this must be a character vector of positive length}
 
