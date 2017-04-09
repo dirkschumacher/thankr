@@ -16,7 +16,7 @@ shoulders(where = c("session", "library", "package"), package = NULL,
 Otherwise it will just return the maintainer.}
 }
 \value{
-a tibble with three columns, \code{maintainer}, \code{no_packages}, \code{packages} showing all packages you depend on.
+a data.frame with three columns, \code{maintainer}, \code{no_packages}, \code{packages} showing all packages you depend on.
 }
 \description{
 This function helps to identify what packages you depend on. It identifies the maintainers and the
