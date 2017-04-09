@@ -69,19 +69,28 @@ session_shoulders <- function() {
 #' @noRd
 build_package_list <- function(packages) {
   stopifnot(is.character(packages))
-  maintainer <- vapply(packages, get_maintainer, character(1))
-  df <- data.frame(pkg_name = packages, maintainer, stringsAsFactors = FALSE)
-  format_pkg_df(df)
+  format_pkg_df(lapply(packages, function(x) {
+    list(maintainer = get_maintainer(x), pkg_name = x)
+  }))
 }
 
 #' @noRd
-format_pkg_df <- function(df) {
-  stopifnot(is.data.frame(df))
-  stopifnot(c("maintainer", "pkg_name") %in% colnames(df))
-  df <- dplyr::filter_(df, ~!is.na(maintainer))
-  df <- dplyr::group_by_(df, "maintainer")
-  df <- dplyr::summarise_(df, no_packages = ~n(),
-                          packages = ~paste0(sort(pkg_name), collapse = ", "))
-  dplyr::arrange_(df, ~desc(no_packages))
+format_pkg_df <- function(lpkgs) {
+  stopifnot(is.list(lpkgs))
+  grouped_data <- Reduce(function(acc, el) {
+    acc[[el$maintainer]] <- c(acc[[el$maintainer]], el$pkg_name)
+    acc
+  }, lpkgs, list())
+  ldf <- Map(function(x) {
+    data.frame(no_packages = length(x),
+               packages = paste0(sort(x), collapse = ", "),
+               stringsAsFactors = FALSE)
+  }, grouped_data)
+  df <- cbind(maintainer = names(ldf),
+               do.call(rbind, ldf),
+               stringsAsFactors = FALSE)
+  df <- df[order(df$no_packages, decreasing = TRUE), ]
+  rownames(df) <- NULL
+  df
 }
 

@@ -8,6 +8,6 @@ Description: It is exactly what you think it is.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: dplyr, tools, utils
+Imports: tools, utils
 Suggests: testthat
 RoxygenNote: 6.0.1
