@@ -79,15 +79,22 @@ build_package_list <- function(packages) {
 #' @noRd
 format_pkg_df <- function(lpkgs) {
   stopifnot(is.list(lpkgs))
+
+  # group the packages for each maintainer
   grouped_data <- Reduce(function(acc, el) {
     acc[[el$maintainer]] <- c(acc[[el$maintainer]], el$pkg_name)
     acc
   }, lpkgs, list())
-  ldf <- Map(function(x) {
-    data.frame(no_packages = length(x),
-               packages = paste0(sort(x), collapse = ", "),
+
+  # convert it to a list of data.frames
+  ldf <- Map(function(pkg_list) {
+    data.frame(no_packages = length(pkg_list),
+               packages = paste0(sort(pkg_list), collapse = ", "),
                stringsAsFactors = FALSE)
   }, grouped_data)
+
+  # convert the list of data.frame to one data.frame
+  # add the maintainer column and order it
   df <- cbind(maintainer = names(ldf),
                do.call(rbind, ldf),
                stringsAsFactors = FALSE)
