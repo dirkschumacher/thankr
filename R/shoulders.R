@@ -63,7 +63,9 @@ library_shoulders <- function() {
 
 #' @noRd
 session_shoulders <- function() {
-  build_package_list(loadedNamespaces())
+  pkgs <- loadedNamespaces()
+  pkgs <- pkgs[pkgs != "thankr"]
+  build_package_list(pkgs)
 }
 
 #' @noRd
