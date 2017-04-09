@@ -5,7 +5,7 @@
 #'
 #' If you do a package lookup you connect to a CRAN mirror.
 #'
-#' @param where either look in the current loaded "session", your whole "library" or for a specific package
+#' @param where either look in the current loaded "session", your whole "library" or for a specific "package"
 #' @param package if \code{where} is "package" then this must be a character vector of positive length
 #' @param include_dependencies if \code{where} is "package" then use this to include all dependencies of the package.
 #'                             Otherwise it will just return the maintainer.
