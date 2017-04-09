@@ -98,6 +98,7 @@ format_pkg_df <- function(lpkgs) {
   df <- cbind(maintainer = names(ldf),
                do.call(rbind, ldf),
                stringsAsFactors = FALSE)
+  df <- df[!is.na(df$maintainer), ]
   df <- df[order(df$no_packages, decreasing = TRUE), ]
   rownames(df) <- NULL
   df
