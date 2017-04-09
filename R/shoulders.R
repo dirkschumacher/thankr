@@ -93,7 +93,7 @@ format_pkg_df <- function(lpkgs) {
                stringsAsFactors = FALSE)
   }, grouped_data)
 
-  # convert the list of data.frame to one data.frame
+  # convert the list of data.frames to a single data.frame,
   # add the maintainer column and order it
   df <- cbind(maintainer = names(ldf),
                do.call(rbind, ldf),
