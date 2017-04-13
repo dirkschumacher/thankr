@@ -19,7 +19,8 @@ test_that("identifies library dependencies", {
 })
 
 test_that("identifies package dependencies", {
-  skip("skip as no default cran mirror is set")
+  skip_on_cran()
+  options(repos = c("CRAN" = "https://cloud.r-project.org"))
   result <- shoulders("package", "testthat", include_dependencies = TRUE)
   expect_true(any(grepl("methods", result$packages)))
 })
