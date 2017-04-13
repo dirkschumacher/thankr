@@ -3,7 +3,7 @@
 #' This function helps to identify what packages you depend on. It identifies the maintainers and the
 #' number of packages they wrote.
 #'
-#' If you do a package lookup you connect to a CRAN mirror.
+#' Note, if you do a package lookup you connect to a CRAN mirror.
 #'
 #' @param where either look in the current loaded "session", your whole "library" or for a specific "package"
 #' @param package if \code{where} is "package" then this must be a character vector of positive length

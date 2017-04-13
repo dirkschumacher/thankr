@@ -28,5 +28,5 @@ This function helps to identify what packages you depend on. It identifies the m
 number of packages they wrote.
 }
 \details{
-If you do a package lookup you connect to a CRAN mirror.
+Note, if you do a package lookup you connect to a CRAN mirror.
 }
