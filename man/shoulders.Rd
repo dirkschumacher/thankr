@@ -20,7 +20,7 @@ A data.frame showing all packages you depend on with these three columns:
         \itemize{
         \item{\code{maintainer}}{ The maintainer as in the DESCRIPTION file}
         \item{\code{no_packages}}{ The number of packages of that maintainer}
-        \item{\code{packages}}{ A comma seperated list of those packages}
+        \item{\code{packages}}{ A comma separated list of those packages}
         }
 }
 \description{

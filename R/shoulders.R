@@ -14,7 +14,7 @@
 #'         \itemize{
 #'         \item{\code{maintainer}}{ The maintainer as in the DESCRIPTION file}
 #'         \item{\code{no_packages}}{ The number of packages of that maintainer}
-#'         \item{\code{packages}}{ A comma seperated list of those packages}
+#'         \item{\code{packages}}{ A comma separated list of those packages}
 #'         }
 #' @export
 shoulders <- function(where = c("session", "library", "package"),
