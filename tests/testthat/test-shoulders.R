@@ -24,3 +24,9 @@ test_that("identifies package dependencies", {
   result <- shoulders("package", "testthat", include_dependencies = TRUE)
   expect_true(any(grepl("methods", result$packages)))
 })
+
+test_that("identifies package dependencies without dependencies", {
+  result <- shoulders("package", "testthat", include_dependencies = FALSE)
+  expect_equal("testthat", result$packages)
+})
+
