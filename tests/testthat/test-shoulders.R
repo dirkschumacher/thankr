@@ -30,3 +30,7 @@ test_that("identifies package dependencies without dependencies", {
   expect_equal("testthat", result$packages)
 })
 
+test_that("shoulders fails if where parameter is not correct", {
+  expect_error(shoulders("wat"))
+})
+

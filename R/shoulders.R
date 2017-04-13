@@ -26,8 +26,6 @@ shoulders <- function(where = c("session", "library", "package"),
     library_shoulders()
   } else if (where == "package") {
     package_shoulders(package, include_dependencies = include_dependencies)
-  } else {
-    stop("should not happen", call. = FALSE)
   }
 }
 
