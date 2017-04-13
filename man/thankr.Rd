@@ -9,4 +9,8 @@
 Find out who maintains the packages you use in
 your current session or in your package library.
 }
+\details{
+This package exposes a single function that helps
+you identity the maintainers of your favorite packages.
+}
 \keyword{package}

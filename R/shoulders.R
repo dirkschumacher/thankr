@@ -10,7 +10,12 @@
 #' @param include_dependencies if \code{where} is "package" then use this to include all dependencies of the package.
 #'                             Otherwise it will just return the maintainer.
 #'
-#' @return a data.frame with three columns, \code{maintainer}, \code{no_packages}, \code{packages} showing all packages you depend on.
+#' @return A data.frame showing all packages you depend on with these three columns:
+#'         \itemize{
+#'         \item{\code{maintainer}}{ The maintainer as in the DESCRIPTION file}
+#'         \item{\code{no_packages}}{ The number of packages of that maintainer}
+#'         \item{\code{packages}}{ A comma seperated list of those packages}
+#'         }
 #' @export
 shoulders <- function(where = c("session", "library", "package"),
                       package = NULL, include_dependencies = TRUE) {

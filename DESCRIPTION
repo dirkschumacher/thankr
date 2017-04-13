@@ -1,15 +1,14 @@
 Package: thankr
 Type: Package
 Title: Find Out Who Wrote the Packages you Use
-Version: 0.1.0.9000
-Authors@R: c(person("Schumacher", "Dirk", email = "mail@dirk-schumacher.net", role = c("aut", "cre")))
-Maintainer: Dirk Schumacher <mail@dirk-schumacher.net>
+Version: 1.0.0
+Authors@R: c(person("Dirk", "Schumacher", email = "mail@dirk-schumacher.net", role = c("aut", "cre")))
 Description: Find out who maintains the packages you use in 
-             your current session or in your package library.
+             your current session or in your package library and
+             maybe say 'thank you'.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports: tools, utils
-Suggests: testthat,
-    covr
+Suggests: testthat, covr
 RoxygenNote: 6.0.1

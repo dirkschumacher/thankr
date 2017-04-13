@@ -16,7 +16,12 @@ shoulders(where = c("session", "library", "package"), package = NULL,
 Otherwise it will just return the maintainer.}
 }
 \value{
-a data.frame with three columns, \code{maintainer}, \code{no_packages}, \code{packages} showing all packages you depend on.
+A data.frame showing all packages you depend on with these three columns:
+        \itemize{
+        \item{\code{maintainer}}{ The maintainer as in the DESCRIPTION file}
+        \item{\code{no_packages}}{ The number of packages of that maintainer}
+        \item{\code{packages}}{ A comma seperated list of those packages}
+        }
 }
 \description{
 This function helps to identify what packages you depend on. It identifies the maintainers and the
