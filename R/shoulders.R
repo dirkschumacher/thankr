@@ -50,7 +50,9 @@ package_shoulders <- function(packages, include_dependencies = FALSE) {
   stopifnot(is.logical(include_dependencies))
   package_list <- unique(packages)
   if (include_dependencies) {
-    dependencies <- tools::package_dependencies(packages, recursive = TRUE)
+    dependencies <- tools::package_dependencies(packages,
+                                                db = utils::available.packages(),
+                                                recursive = TRUE)
     package_list <- unique(c(package_list, unlist(dependencies)))
   }
   build_package_list(package_list)
