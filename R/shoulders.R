@@ -1,7 +1,7 @@
 #' Find out who wrote the packages you use
 #'
 #' This function helps to identify what packages you depend on. It identifies the maintainers and the
-#' number of packages they wrote.
+#' number of packages they maintain
 #'
 #' Note, if you do a package lookup you connect to a CRAN mirror.
 #'
@@ -18,13 +18,19 @@
 #'         }
 #' @export
 shoulders <- function(where = c("session", "library", "package"),
-                      package = NULL, include_dependencies = TRUE) {
-  # !is.null(package) => is.logical(include_dependencies)
-  stopifnot(is.null(package) || is.logical(include_dependencies))
-  where <- match.arg(where)
+                      package, include_dependencies = TRUE) {
 
-  # where == "package" => is.character(package) && length(package) > 0
-  stopifnot(where != "package" || is.character(package) && length(package) > 0)
+  # input checks
+  where <- match.arg(where)
+  package <- if (missing(package)) NULL else package
+  if (where == "package" &&
+      (is.null(package) || !is.character(package) || length(package) == 0)) {
+    stop("When doing a package lookup, please also specify at least one package",
+         call. = FALSE)
+  }
+  # !missing(package) => is.logical(include_dependencies)
+  stopifnot(missing(package) || is.logical(include_dependencies))
+
   if (where == "session") {
     session_shoulders()
   } else if (where == "library") {
@@ -47,8 +53,17 @@ get_maintainer <- function(pkg_name) {
 
 #' @noRd
 package_shoulders <- function(packages, include_dependencies = FALSE) {
-  installed_packages <- utils::installed.packages()
-  stopifnot(all(packages %in% installed_packages))
+  installed_packages <- packages[packages %in% utils::installed.packages()]
+  not_installed_pkgs <- packages[!packages %in% installed_packages]
+  if (length(installed_packages) == 0) {
+    stop("None of the packages you provided exist in your local library",
+         call. = FALSE)
+  }
+  if (length(not_installed_pkgs) > 0) {
+    warning("The following packages do not exist in your local library and will be ignored: ",
+            paste0(sort(not_installed_pkgs), collapse = ", "), call. = FALSE)
+  }
+  packages <- installed_packages
   stopifnot(length(include_dependencies) == 1)
   stopifnot(is.logical(include_dependencies))
   package_list <- unique(packages)

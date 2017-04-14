@@ -34,3 +34,16 @@ test_that("shoulders fails if where parameter is not correct", {
   expect_error(shoulders("wat"))
 })
 
+test_that("shoulders fails if package lookup done without a package", {
+  expect_error(shoulders("package"), "specify")
+})
+
+test_that("shoulders fails if all packages do not exist", {
+  expect_error(shoulders("package", "watwatwatwatwat"), "exist")
+})
+
+test_that("shoulders ignores packages that do not exists", {
+  expect_warning(result <- shoulders("package", c("base", "watwatwatwatwat")),
+                           "watwatwatwatwat")
+  expect_equal(1, nrow(result))
+})

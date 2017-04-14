@@ -4,7 +4,7 @@
 \alias{shoulders}
 \title{Find out who wrote the packages you use}
 \usage{
-shoulders(where = c("session", "library", "package"), package = NULL,
+shoulders(where = c("session", "library", "package"), package,
   include_dependencies = TRUE)
 }
 \arguments{
@@ -25,7 +25,7 @@ A data.frame showing all packages you depend on with these three columns:
 }
 \description{
 This function helps to identify what packages you depend on. It identifies the maintainers and the
-number of packages they wrote.
+number of packages they maintain
 }
 \details{
 Note, if you do a package lookup you connect to a CRAN mirror.
