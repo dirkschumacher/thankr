@@ -6,6 +6,8 @@
 #' This package exposes a single function \code{\link[thankr]{shoulders}} that helps
 #' you identify the maintainers of your favorite packages.
 #'
+#' > standing on the shoulders of giants
+#'
 #' @docType package
 #' @keywords package
 #' @name thankr
