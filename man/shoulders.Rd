@@ -24,8 +24,8 @@ A data.frame showing all packages you depend on with these three columns:
         }
 }
 \description{
-This function helps to identify what packages you depend on. It identifies the maintainers and the
-number of packages they maintain
+This function helps to identify what packages you depend on. It finds the maintainers and the
+number of packages they maintain.
 }
 \details{
 Note, if you do a package lookup you connect to a CRAN mirror.

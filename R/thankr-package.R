@@ -3,7 +3,7 @@
 #' Find out who maintains the packages you use in
 #' your current session or in your package library.
 #'
-#' This package exposes a single function that helps
+#' This package exposes a single function \code{\link[thankr]{shoulders}} that helps
 #' you identify the maintainers of your favorite packages.
 #'
 #' @docType package
