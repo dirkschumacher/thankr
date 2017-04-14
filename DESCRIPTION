@@ -1,7 +1,7 @@
 Package: thankr
 Type: Package
 Title: Find Out Who Maintains the Packages you Use
-Version: 1.0.0
+Version: 1.0.0.9000
 Authors@R: c(person("Dirk", "Schumacher", email = "mail@dirk-schumacher.net", role = c("aut", "cre")))
 Description: Find out who maintains the packages you use in
              your current session or in your package library and
