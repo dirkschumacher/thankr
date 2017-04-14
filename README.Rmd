@@ -22,10 +22,15 @@ Find out what packages you use and maybe thank the authors :)
 
 ## Install
 
+### From CRAN
+```{r, eval=FALSE}
+install.packages("thankr")
+```
+
+### Latest development version
 ```{r, eval=FALSE}
 devtools::install_github("dirkschumacher/thankr")
 ```
-
 
 ## Usage
 

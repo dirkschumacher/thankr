@@ -11,6 +11,14 @@ Find out what packages you use and maybe thank the authors :)
 Install
 -------
 
+### From CRAN
+
+``` r
+install.packages("thankr")
+```
+
+### Latest development version
+
 ``` r
 devtools::install_github("dirkschumacher/thankr")
 ```
