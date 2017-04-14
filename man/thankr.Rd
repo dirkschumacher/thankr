@@ -11,6 +11,6 @@ your current session or in your package library.
 }
 \details{
 This package exposes a single function that helps
-you identity the maintainers of your favorite packages.
+you identify the maintainers of your favorite packages.
 }
 \keyword{package}

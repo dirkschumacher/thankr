@@ -4,7 +4,7 @@
 #' your current session or in your package library.
 #'
 #' This package exposes a single function that helps
-#' you identity the maintainers of your favorite packages.
+#' you identify the maintainers of your favorite packages.
 #'
 #' @docType package
 #' @keywords package
