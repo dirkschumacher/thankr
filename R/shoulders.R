@@ -1,4 +1,4 @@
-#' Find Out Who Wrote the Packages you Use
+#' Find Out Who Maintains the Packages you Use
 #'
 #' This function helps to identify what packages you depend on. It identifies the maintainers and the
 #' number of packages they maintain

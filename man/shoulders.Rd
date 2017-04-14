@@ -2,7 +2,7 @@
 % Please edit documentation in R/shoulders.R
 \name{shoulders}
 \alias{shoulders}
-\title{Find Out Who Wrote the Packages you Use}
+\title{Find Out Who Maintains the Packages you Use}
 \usage{
 shoulders(where = c("session", "library", "package"), package,
   include_dependencies = TRUE)

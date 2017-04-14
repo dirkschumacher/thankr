@@ -4,7 +4,7 @@
 \name{thankr}
 \alias{thankr}
 \alias{thankr-package}
-\title{Find Out Who Wrote the Packages you Use}
+\title{Find Out Who Maintains the Packages you Use}
 \description{
 Find out who maintains the packages you use in
 your current session or in your package library.
