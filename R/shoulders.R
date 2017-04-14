@@ -16,6 +16,20 @@
 #'         \item{\code{no_packages}}{ The number of packages of that maintainer}
 #'         \item{\code{packages}}{ A comma separated list of those packages}
 #'         }
+#'
+#' @examples
+#' \dontrun{
+#' # identifies the packages currently loaded in your session
+#' shoulders() # equal to shoulders("session")
+#'
+#' # shows all maintainers of your package library
+#' shoulders("library")
+#'
+#' # find out about a specific package
+#' # by default it lists all dependencies of that package as well
+#' shoulders("package", "utils", include_dependencies = FALSE)
+#' shoulders("package", "utils")
+#' }
 #' @export
 shoulders <- function(where = c("session", "library", "package"),
                       package, include_dependencies = TRUE) {

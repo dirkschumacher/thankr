@@ -30,3 +30,17 @@ number of packages they maintain.
 \details{
 Note, if you do a package lookup you connect to a CRAN mirror.
 }
+\examples{
+\dontrun{
+# identifies the packages currently loaded in your session
+shoulders() # equal to shoulders("session")
+
+# shows all maintainers of your package library
+shoulders("library")
+
+# find out about a specific package
+# by default it lists all dependencies of that package as well
+shoulders("package", "utils", include_dependencies = FALSE)
+shoulders("package", "utils")
+}
+}
