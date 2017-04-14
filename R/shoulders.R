@@ -123,4 +123,3 @@ format_pkg_df <- function(lpkgs) {
   rownames(df) <- NULL
   df
 }
-
