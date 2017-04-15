@@ -46,3 +46,20 @@ shoulders("library")
 shoulders("package", "ropenaq", include_dependencies = FALSE)
 shoulders("package", "ropenaq")
 ```
+
+Only in the development version
+-------------------------------
+
+Find out what packages you have already starred on Github. Inspired by the node module [appreciate](https://github.com/musically-ut/appreciate).
+
+``` r
+gh_starred(c("ropenaq", "Rcpp", "dplyr"))
+#> hadley/dplyr:         ★ Starred. 
+#> RcppCore/Rcpp:        ★ Starred. 
+#> ropensci/ropenaq:     ★ Starred.
+```
+
+Contributing
+------------
+
+If you found a bug or want to propose a feature, feel free to visit the [issues page](https://github.com/dirkschumacher/thankr/issues).
