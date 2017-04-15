@@ -30,6 +30,7 @@ gh_starred <- function(packages, console_output = TRUE,
                     user_agent = "https://github.com/dirkschumacher/thankr") {
   stopifnot(is.character(packages))
   packages <- packages[packages %in% utils::installed.packages()]
+  packages <- unique(packages)
   if (length(packages) == 0) {
     stop("Non of the packages exist in your library", call. = FALSE)
   }
