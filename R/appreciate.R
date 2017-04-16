@@ -105,7 +105,7 @@ output_starred_repos <- function(repos) {
   stopifnot(is.data.frame(repos))
   stopifnot(c("username", "repository", "starred") %in% colnames(repos))
   stars <- repos$starred
-  gh_ids <- paste0(repos$username, "/", repos$repository, ": ")
+  gh_ids <- paste0(repos$username, "/", repos$repository)
   max_nchar <- max(nchar(gh_ids))
   for (i in seq_len(nrow(repos))) {
     starred <- stars[i]
