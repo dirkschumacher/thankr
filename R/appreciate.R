@@ -182,7 +182,8 @@ check_stars_gh <- function(gh_repos,
                            verbose = FALSE) {
   stopifnot(is.data.frame(gh_repos))
   headers <- list("Authorization" = paste0("token ", github_token()),
-                  "User-Agent" = user_agent)
+                  "User-Agent" = user_agent,
+                  "Accept" = "application/vnd.github.v3+json")
   reqs <- lapply(gh_repos$api_url, function(x) {
     crul::HttpClient$new(
       url = x,
