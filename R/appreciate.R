@@ -3,6 +3,8 @@
 #' Starring a package on Github is a form of appreciation for the project.
 #' With this function you can quickly check if you starred all your favorite packages.
 #'
+#' Still under development. Api and names can change.
+#'
 #' The function assumes that you have set an environment variable
 #' (either \code{GITHUB_PAT} or \code{GITHUB_TOKEN}) with a Github Access Token.
 #'
@@ -48,6 +50,45 @@ gh_starred <- function(packages, console_output = TRUE,
   } else {
     gh_repos
   }
+}
+
+#' Appreciate your package dependencies
+#'
+#' This function is meant to be used when developing a package.
+#' It extracts all package dependencies from the \code{DESCRIPTION} file in your working directory
+#' and checks if you have starred it on github (if those packages are hosted on github).
+#'
+#' Still under development. Api and names can change.
+#'
+#' @return
+#' Always returns an invisible data.frame with three columns "username", "repository" and "starred".
+#' Also outputs that information to the console.
+#'
+#' @references Inspired by <https://github.com/musically-ut/appreciate>
+#'
+#' @export
+appreciate <- function() {
+  is_package <- file.exists("DESCRIPTION")
+  if (!is_package) {
+    stop("No file DESCRIPTION found in your working directory.", call. = FALSE)
+  }
+  desc <- packageDescription(".", lib.loc = ".", fields = c("Package", "Imports", "Suggests"))
+  imports <- parse_dependencies(desc$Imports)
+  suggests <- parse_dependencies(desc$Suggests)
+  cat("Checking dependencies for", paste0(desc$Package, ":\n"))
+  gh_starred(sort(unique(c(imports, suggests))))
+}
+
+# String -> String[]
+# Parses a package dependency string and returns a character vector
+# of package names
+parse_dependencies <- function(dep_string) {
+  elements <- strsplit(dep_string, ",", fixed = TRUE)[[1]]
+  elements <- trimws(elements)
+  elements <- sub(pattern = "^([a-zA-Z0-9\\._]+).*",
+      replacement = "\\1",
+      x = elements, perl = TRUE)
+  elements
 }
 
 output_starred_repos <- function(repos) {

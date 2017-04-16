@@ -50,6 +50,8 @@ shoulders("package", "ropenaq")
 Only in the development version
 -------------------------------
 
+Everything here is still work in progress. Any feedback appreciated.
+
 Find out what packages you have already starred on Github. Inspired by the node module [appreciate](https://github.com/musically-ut/appreciate).
 
 ``` r
@@ -57,6 +59,17 @@ gh_starred(c("ropenaq", "Rcpp", "dplyr"))
 #> hadley/dplyr:         ★ Starred. 
 #> RcppCore/Rcpp:        ★ Starred. 
 #> ropensci/ropenaq:     ★ Starred.
+```
+
+If you are developing a package, you can call `appreciate` in your working directory. If there is a `DESCRIPTION` file, it parses it and checks if you have already starred the dependencies on github. The function fails, if the working directory does not contain a `DESCRIPTION` file.
+
+``` r
+thankr::appreciate()
+#> Checking dependencies for thankr:
+#> gaborcsardi/crayon:     ★ Starred. 
+#> hadley/testthat:        ★ Starred. 
+#> jimhester/covr:         ★ Starred. 
+#> ropensci/crul:          ★ Starred.
 ```
 
 Contributing

@@ -1,4 +1,4 @@
-context("starred")
+context("aprreciate")
 test_that("can extract repository and username from urls", {
   urls <- c(
     "https://github.com/xyz-3/abc#readme",
@@ -21,3 +21,14 @@ test_that("we can extract a package url", {
   expect_true(!is.na(get_package_url(pkg_name = "testthat")))
 })
 
+test_that("we can parse package dependencies from DESCRIPTIO", {
+  deps <- "
+    curl (>= 0.9),
+    crayon,
+    testthat (>= 1.0.2.9000),
+    lintr (== 0.2.1),
+    bitops,
+    roxygen2 (>= 5.0.0)"
+  expect_equal(c("curl", "crayon", "testthat",
+                 "lintr", "bitops", "roxygen2"), parse_dependencies(deps))
+})
