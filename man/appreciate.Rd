@@ -17,6 +17,15 @@ and checks if you have starred it on github (if those packages are hosted on git
 }
 \details{
 Still under development. Api and names can change.
+
+The function assumes that you have set an environment variable
+(either \code{GITHUB_PAT} or \code{GITHUB_TOKEN}) with a Github Access Token.
+
+When using this function together with \code{\link{shoulders}} please note that
+once run for the first time additional packages are attached to your session.
+
+Also take a look at the API documentation <https://developer.github.com/v3/> of Github
+and their terms of use before using this function.
 }
 \references{
 Inspired by <https://github.com/musically-ut/appreciate>
