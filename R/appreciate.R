@@ -81,7 +81,8 @@ appreciate <- function() {
   if (!is_package) {
     stop("No file DESCRIPTION found in your working directory.", call. = FALSE)
   }
-  desc <- packageDescription(".", lib.loc = ".", fields = c("Package", "Imports", "Suggests"))
+  desc <- utils::packageDescription(".", lib.loc = ".",
+                                    fields = c("Package", "Imports", "Suggests"))
   imports <- parse_dependencies(desc$Imports)
   suggests <- parse_dependencies(desc$Suggests)
   cat("Checking dependencies for", paste0(desc$Package, ":\n"))
