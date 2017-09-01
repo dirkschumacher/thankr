@@ -83,8 +83,8 @@ appreciate <- function() {
   }
   desc <- utils::packageDescription(".", lib.loc = ".",
                                     fields = c("Package", "Imports", "Suggests"))
-  imports <- parse_dependencies(desc$Imports)
-  suggests <- parse_dependencies(desc$Suggests)
+  imports <- parse_dependencies(as.character(desc$Imports))
+  suggests <- parse_dependencies(as.character(desc$Suggests))
   cat("Checking dependencies for", paste0(desc$Package, ":\n"))
   gh_starred(sort(unique(c(imports, suggests))))
 }
@@ -94,6 +94,9 @@ appreciate <- function() {
 # of package names
 parse_dependencies <- function(dep_string) {
   dep_string <- dep_string[!is.na(dep_string)]
+  if (length(dep_string) == 0L) {
+    return(character(0L))
+  }
   elements <- strsplit(dep_string, ",", fixed = TRUE)[[1]]
   elements <- trimws(elements)
   elements <- sub(pattern = "^([a-zA-Z0-9\\._]+).*",
