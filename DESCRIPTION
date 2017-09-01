@@ -6,6 +6,8 @@ Authors@R: c(person("Dirk", "Schumacher", email = "mail@dirk-schumacher.net", ro
 Description: Find out who maintains the packages you use in
              your current session or in your package library and
              maybe say 'thank you'.
+URL: https://github.com/dirkschumacher/thankr
+BugReports: https://github.com/dirkschumacher/thankr/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
