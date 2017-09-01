@@ -45,6 +45,6 @@ test_that("shoulders fails if all packages do not exist", {
 test_that("shoulders ignores packages that do not exists", {
   expect_warning(result <- shoulders("package", c("base", "watwatwatwatwat"),
                                      include_dependencies = FALSE),
-                           "watwatwatwatwat")
+                 "watwatwatwatwat")
   expect_equal(1, nrow(result))
 })

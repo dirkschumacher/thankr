@@ -28,8 +28,8 @@
 #'
 #' @export
 gh_starred <- function(packages, console_output = TRUE,
-                    api_url = "https://api.github.com",
-                    user_agent = "https://github.com/dirkschumacher/thankr") {
+                       api_url = "https://api.github.com",
+                       user_agent = "https://github.com/dirkschumacher/thankr") {
   stopifnot(is.character(packages))
   packages <- packages[packages %in% utils::installed.packages()]
   packages <- unique(packages)
@@ -93,11 +93,12 @@ appreciate <- function() {
 # Parses a package dependency string and returns a character vector
 # of package names
 parse_dependencies <- function(dep_string) {
+  dep_string <- dep_string[!is.na(dep_string)]
   elements <- strsplit(dep_string, ",", fixed = TRUE)[[1]]
   elements <- trimws(elements)
   elements <- sub(pattern = "^([a-zA-Z0-9\\._]+).*",
-      replacement = "\\1",
-      x = elements, perl = TRUE)
+                  replacement = "\\1",
+                  x = elements, perl = TRUE)
   elements
 }
 
@@ -141,8 +142,8 @@ github_token <- function() {
   }
   if (no(token)) {
     stop("Could not find a github token in either the variables ",
-          "GITHUB_PAT or GITHUB_TOKEN",
-          call. = FALSE)
+         "GITHUB_PAT or GITHUB_TOKEN",
+         call. = FALSE)
   }
   token
 }
